@@ -478,7 +478,8 @@
                     <div>
                         <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Frequency Response Curve</h4>
                         <div class="bg-white border border-slate-200 rounded-lg p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openLightbox(document.getElementById('modalCurveImg').src)">
-                            <img id="modalCurveImg" src="" alt="Frequency Curve" class="w-full h-auto object-contain rounded" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'p-8 text-center text-slate-400\'>Curve image not available</div>';">
+                            <!-- Removed onerror to allow debugging via broken image icon -->
+                            <img id="modalCurveImg" src="" alt="Frequency Curve" class="w-full h-auto object-contain rounded">
                         </div>
                     </div>
 
@@ -574,7 +575,7 @@
             card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 flex flex-col cursor-pointer";
             card.onclick = () => openModal(product.id);
 
-            const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.innerHTML='<i class=\'fas fa-volume-up text-6xl text-slate-300\'></i>';">`;
+            const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300\'><i class=\'fas fa-volume-up text-6xl\'></i></div>';">`;
             
             card.innerHTML = `
                 <div class="h-64 bg-slate-100 relative overflow-hidden flex items-center justify-center group-hover:bg-slate-50 transition-colors">
