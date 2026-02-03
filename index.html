@@ -618,6 +618,7 @@
             card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 flex flex-col cursor-pointer";
             card.onclick = () => openModal(product.id);
 
+            // Use the first image as thumbnail
             const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300\'><i class=\'fas fa-volume-up text-6xl\'></i></div>';">`;
             
             card.innerHTML = `
@@ -655,7 +656,10 @@
 
             // Populate Gallery Grid
             modalImageGrid.innerHTML = '';
-            product.images.forEach(src => {
+            // Filter out 'Curve' images from the gallery
+            const galleryImages = product.images.filter(img => !img.includes('Curve'));
+            
+            galleryImages.forEach(src => {
                 const imgContainer = document.createElement('div');
                 imgContainer.className = "aspect-square bg-slate-100 rounded-lg overflow-hidden border border-slate-200 cursor-pointer";
                 
