@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="shortcut icon" href="favicon.ico">
-    <meta name="description" content="The original source factory for high-performance AMT drivers. Flat response up to 40kHz. Supporting global distributors with direct R&D and manufacturing since 2026. Explore the YA-AMT series.">
+    <meta name="description" content="The original source factory for high-performance AMT drivers. Flat response up to 40kHz. Supporting global distributors with direct R&D and manufacturing since 2026. Explore YA-AMT series.">
     
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SS4BD6N958"></script>
@@ -421,6 +421,10 @@
                                 <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 bg-white/50 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent transition-all outline-none" placeholder="Your Name">
                             </div>
                             <div>
+                                <label for="company" class="block text-sm font-medium text-slate-700">Company Name</label>
+                                <input type="text" name="company" id="company" class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 bg-white/50 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent transition-all outline-none" placeholder="Your Company">
+                            </div>
+                            <div>
                                 <label for="email" class="block text-sm font-medium text-slate-700">Email</label>
                                 <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-3 rounded-lg border border-slate-300 bg-white/50 focus:ring-2 focus:ring-brand-accent focus:border-brand-accent transition-all outline-none" placeholder="you@company.com">
                             </div>
@@ -497,6 +501,13 @@
                         </div>
                     </div>
 
+                    <!-- Download PDF Button (New) -->
+                    <div>
+                        <a id="modalPdfBtn" href="#" target="_blank" class="flex items-center justify-center w-full py-4 px-6 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-brand-accent hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-all duration-300">
+                            <i class="fas fa-file-pdf mr-2"></i> Download PDF Specifications
+                        </a>
+                    </div>
+
                     <!-- Contact CTA -->
                     <div class="bg-amber-50 border-l-4 border-brand-accent p-4 rounded-r-lg">
                         <p class="text-brand-dark font-medium text-sm">
@@ -527,6 +538,7 @@
                 id: 'AMTST139',
                 name: 'AMTST139',
                 impedance: '8.0 Ω',
+                pdf: 'assets/docs/AMTST139.pdf',
                 images: [
                     'assets/images/ST139/1.jpg',
                     'assets/images/ST139/2.jpg',
@@ -539,6 +551,7 @@
                 id: 'AMT040-0401',
                 name: 'AMT040-0401',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT040-0401.pdf',
                 images: [
                     'assets/images/AMT040-0401/1.png',
                     'assets/images/AMT040-0401/2.png'
@@ -549,6 +562,7 @@
                 id: 'AMT040-0402',
                 name: 'AMT040-0402',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT040-0402.pdf',
                 images: [
                     'assets/images/AMT040-0402/1.png',
                     'assets/images/AMT040-0402/2.png',
@@ -560,6 +574,7 @@
                 id: 'AMT040-0403',
                 name: 'AMT040-0403',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT040-0403.pdf',
                 images: [
                     'assets/images/AMT040-0403/1.png',
                     'assets/images/AMT040-0403/2.png',
@@ -571,6 +586,7 @@
                 id: 'AMT040-0404',
                 name: 'AMT040-0404',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT040-0404.pdf',
                 images: [
                     'assets/images/AMT040-0404/1.png',
                     'assets/images/AMT040-0404/2.png',
@@ -583,6 +599,7 @@
                 id: 'AMT065-0401',
                 name: 'AMT065-0401',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT065-0401.pdf',
                 images: [
                     'assets/images/AMT065-0401/1.png',
                     'assets/images/AMT065-0401/2.png',
@@ -594,6 +611,7 @@
                 id: 'AMT065-0402',
                 name: 'AMT065-0402',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT065-0402.pdf',
                 images: [
                     'assets/images/AMT065-0402/1.png',
                     'assets/images/AMT065-0402/2.png',
@@ -606,6 +624,7 @@
                 id: 'AMT065-0403',
                 name: 'AMT065-0403',
                 impedance: '4.0 Ω',
+                pdf: 'assets/docs/AMT065-0403.pdf',
                 images: [
                     'assets/images/AMT065-0403/1.png',
                     'assets/images/AMT065-0403/2.png',
@@ -623,7 +642,7 @@
             card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 flex flex-col cursor-pointer";
             card.onclick = () => openModal(product.id);
 
-            // Use the first image as thumbnail
+            // Use first image as thumbnail
             const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300\'><i class=\'fas fa-volume-up text-6xl\'></i></div>';">`;
             
             card.innerHTML = `
@@ -647,6 +666,7 @@
         const modalImageGrid = document.getElementById('modalImageGrid');
         const modalImpedance = document.getElementById('modalImpedance');
         const modalCurveImg = document.getElementById('modalCurveImg');
+        const modalPdfBtn = document.getElementById('modalPdfBtn');
 
         function openModal(productId) {
             const product = products.find(p => p.id === productId);
@@ -655,13 +675,14 @@
             modalTitle.innerText = product.name;
             modalImpedance.innerText = product.impedance;
             modalCurveImg.src = product.curve;
+            modalPdfBtn.href = product.pdf;
             
             // Reset to first tab
             switchTab('gallery');
 
             // Populate Gallery Grid
             modalImageGrid.innerHTML = '';
-            // Filter out 'Curve' images from the gallery
+            // Filter out 'Curve' images from gallery
             const galleryImages = product.images.filter(img => !img.includes('Curve'));
             
             galleryImages.forEach(src => {
@@ -797,5 +818,3 @@
     </script>
 </body>
 </html>
-
-
