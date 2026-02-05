@@ -349,10 +349,9 @@
                     </h3>
                 </div>
                 <div class="flex gap-2">
-                    <button class="px-4 py-2 bg-white rounded-lg shadow-sm text-sm font-medium text-brand-dark hover:text-brand-accent transition-colors border border-slate-200">All</button>
-                    <button class="px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-slate-500 hover:text-brand-dark transition-colors">Tweeters</button>
-                    <button class="px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-slate-500 hover:text-brand-dark transition-colors">Midrange</button>
-                    <button class="px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-slate-500 hover:text-brand-dark transition-colors">Woofer</button>
+                    <button class="filter-btn active px-4 py-2 bg-white rounded-lg shadow-sm text-sm font-medium text-brand-dark hover:text-brand-accent transition-colors border border-slate-200" data-filter="all">All</button>
+                    <button class="filter-btn px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-slate-500 hover:text-brand-dark transition-colors" data-filter="tweeter">Tweeters</button>
+                    <button class="filter-btn px-4 py-2 bg-transparent rounded-lg text-sm font-medium text-slate-500 hover:text-brand-dark transition-colors" data-filter="diaphragm">Diaphragms</button>
                 </div>
             </div>
 
@@ -492,17 +491,16 @@
                         <span id="modalImpedance" class="font-bold text-brand-dark text-lg">8.0 Ω</span>
                     </div>
 
-                    <!-- Curve Image -->
-                    <div>
+                    <!-- Curve Image (Conditional) -->
+                    <div id="modalCurveContainer">
                         <h4 class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2">Frequency Response Curve</h4>
                         <div class="bg-white border border-slate-200 rounded-lg p-2 shadow-sm cursor-pointer hover:shadow-md transition-shadow" onclick="openLightbox(document.getElementById('modalCurveImg').src)">
-                            <!-- Removed onerror to allow debugging via broken image icon -->
                             <img id="modalCurveImg" src="" alt="Frequency Curve" class="w-full h-auto object-contain rounded">
                         </div>
                     </div>
 
-                    <!-- Download PDF Button (New) -->
-                    <div>
+                    <!-- Download PDF Button (Conditional) -->
+                    <div id="modalPdfContainer">
                         <a id="modalPdfBtn" href="#" target="_blank" class="flex items-center justify-center w-full py-4 px-6 border border-transparent rounded-lg shadow-sm text-base font-bold text-white bg-brand-accent hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-accent transition-all duration-300">
                             <i class="fas fa-file-pdf mr-2"></i> Download PDF Specifications
                         </a>
@@ -534,9 +532,11 @@
     <script>
         // Product Data
         const products = [
+            // --- Tweeters ---
             {
                 id: 'AMTST139',
                 name: 'AMTST139',
+                category: 'tweeter',
                 impedance: '8.0 Ω',
                 pdf: 'assets/docs/AMTST139.pdf',
                 images: [
@@ -550,6 +550,7 @@
             {
                 id: 'AMT040-0401',
                 name: 'AMT040-0401',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT040-0401.pdf',
                 images: [
@@ -561,6 +562,7 @@
             {
                 id: 'AMT040-0402',
                 name: 'AMT040-0402',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT040-0402.pdf',
                 images: [
@@ -573,6 +575,7 @@
             {
                 id: 'AMT040-0403',
                 name: 'AMT040-0403',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT040-0403.pdf',
                 images: [
@@ -585,6 +588,7 @@
             {
                 id: 'AMT040-0404',
                 name: 'AMT040-0404',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT040-0404.pdf',
                 images: [
@@ -598,6 +602,7 @@
             {
                 id: 'AMT065-0401',
                 name: 'AMT065-0401',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT065-0401.pdf',
                 images: [
@@ -610,6 +615,7 @@
             {
                 id: 'AMT065-0402',
                 name: 'AMT065-0402',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT065-0402.pdf',
                 images: [
@@ -623,6 +629,7 @@
             {
                 id: 'AMT065-0403',
                 name: 'AMT065-0403',
+                category: 'tweeter',
                 impedance: '4.0 Ω',
                 pdf: 'assets/docs/AMT065-0403.pdf',
                 images: [
@@ -631,33 +638,94 @@
                     'assets/images/AMT065-0403/Curve.png'
                 ],
                 curve: 'assets/images/AMT065-0403/Curve.png'
+            },
+            // --- Diaphragms ---
+            {
+                id: 'YADiaph-40',
+                name: 'YADiaph-40',
+                category: 'diaphragm',
+                impedance: '4Ω / 8Ω Optional',
+                pdf: null, // No PDF for diaphragms yet
+                images: [
+                    'assets/images/Diaphragms-YA-40/1.png',
+                    'assets/images/Diaphragms-YA-40/2.jpg',
+                    'assets/images/Diaphragms-YA-40/3.jpg'
+                ],
+                curve: null // No curve for diaphragms
+            },
+            {
+                id: 'YADiaph-65',
+                name: 'YADiaph-65',
+                category: 'diaphragm',
+                impedance: '4Ω / 8Ω Optional',
+                pdf: null, // No PDF for diaphragms yet
+                images: [
+                    'assets/images/Diaphragms-YA-65/1.jpg',
+                    'assets/images/Diaphragms-YA-65/2.jpg',
+                    'assets/images/Diaphragms-YA-65/3.jpg'
+                ],
+                curve: null // No curve for diaphragms
             }
         ];
 
         // Render Products
         const productGrid = document.getElementById('product-grid');
         
-        products.forEach(product => {
-            const card = document.createElement('div');
-            card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 flex flex-col cursor-pointer";
-            card.onclick = () => openModal(product.id);
-
-            // Use first image as thumbnail
-            const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300\'><i class=\'fas fa-volume-up text-6xl\'></i></div>';">`;
+        function renderProducts(filter = 'all') {
+            productGrid.innerHTML = '';
             
-            card.innerHTML = `
-                <div class="h-64 bg-slate-100 relative overflow-hidden flex items-center justify-center group-hover:bg-slate-50 transition-colors">
-                    ${thumbImg}
-                    <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
-                        <span class="opacity-0 group-hover:opacity-100 text-white font-bold bg-black/50 px-4 py-2 rounded-full transition-opacity">View Details</span>
+            const filteredProducts = filter === 'all' 
+                ? products 
+                : products.filter(p => p.category === filter);
+
+            if (filteredProducts.length === 0) {
+                productGrid.innerHTML = '<div class="col-span-3 text-center py-10 text-slate-500">No products found in this category.</div>';
+                return;
+            }
+
+            filteredProducts.forEach(product => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-slate-100 flex flex-col cursor-pointer";
+                card.onclick = () => openModal(product.id);
+
+                // Use first image as thumbnail
+                const thumbImg = `<img src="${product.images[0]}" alt="${product.name}" class="w-full h-64 object-cover bg-slate-100" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full flex items-center justify-center text-slate-300\'><i class=\'fas fa-volume-up text-6xl\'></i></div>';">`;
+                
+                card.innerHTML = `
+                    <div class="h-64 bg-slate-100 relative overflow-hidden flex items-center justify-center group-hover:bg-slate-50 transition-colors">
+                        ${thumbImg}
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                            <span class="opacity-0 group-hover:opacity-100 text-white font-bold bg-black/50 px-4 py-2 rounded-full transition-opacity">View Details</span>
+                        </div>
                     </div>
-                </div>
-                <div class="p-6 flex-1 flex flex-col justify-center">
-                    <h4 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-accent transition-colors">${product.name}</h4>
-                    <p class="text-slate-500 text-sm">Click to view specifications and gallery.</p>
-                </div>
-            `;
-            productGrid.appendChild(card);
+                    <div class="p-6 flex-1 flex flex-col justify-center">
+                        <h4 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-accent transition-colors">${product.name}</h4>
+                        <p class="text-slate-500 text-sm">Click to view specifications and gallery.</p>
+                    </div>
+                `;
+                productGrid.appendChild(card);
+            });
+        }
+
+        // Initialize with all products
+        renderProducts();
+
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-white', 'text-brand-dark', 'border-slate-200', 'shadow-sm');
+                    b.classList.add('bg-transparent', 'text-slate-500');
+                });
+                // Add active class to clicked
+                btn.classList.remove('bg-transparent', 'text-slate-500');
+                btn.classList.add('bg-white', 'text-brand-dark', 'border-slate-200', 'shadow-sm');
+                
+                const filterValue = btn.getAttribute('data-filter');
+                renderProducts(filterValue);
+            });
         });
 
         // Modal Logic
@@ -666,7 +734,9 @@
         const modalImageGrid = document.getElementById('modalImageGrid');
         const modalImpedance = document.getElementById('modalImpedance');
         const modalCurveImg = document.getElementById('modalCurveImg');
+        const modalCurveContainer = document.getElementById('modalCurveContainer');
         const modalPdfBtn = document.getElementById('modalPdfBtn');
+        const modalPdfContainer = document.getElementById('modalPdfContainer');
 
         function openModal(productId) {
             const product = products.find(p => p.id === productId);
@@ -674,8 +744,6 @@
 
             modalTitle.innerText = product.name;
             modalImpedance.innerText = product.impedance;
-            modalCurveImg.src = product.curve;
-            modalPdfBtn.href = product.pdf;
             
             // Reset to first tab
             switchTab('gallery');
@@ -706,6 +774,23 @@
                 imgContainer.appendChild(img);
                 modalImageGrid.appendChild(imgContainer);
             });
+
+            // Handle Specs Tab Content
+            // 1. Curve Image
+            if (product.curve) {
+                modalCurveContainer.style.display = 'block';
+                modalCurveImg.src = product.curve;
+            } else {
+                modalCurveContainer.style.display = 'none';
+            }
+
+            // 2. PDF Button
+            if (product.pdf) {
+                modalPdfContainer.style.display = 'block';
+                modalPdfBtn.href = product.pdf;
+            } else {
+                modalPdfContainer.style.display = 'none';
+            }
 
             modal.classList.add('show');
             document.body.style.overflow = 'hidden';
