@@ -22,7 +22,7 @@
         body { font-family: 'Inter', sans-serif; }
         .gradient-text { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .product-card:hover .curve-overlay { opacity: 1; }
-        .filter-btn.active { background-color: #f59e0b; color: white; border-color: #f59e0b; }
+        .contact-card:hover { transform: translateY(-5px); border-color: #f59e0b; }
     </style>
 </head>
 
@@ -36,55 +36,45 @@
             <div class="hidden md:flex gap-8 items-center font-bold text-xs uppercase tracking-widest text-slate-600">
                 <a href="#products" class="hover:text-amber-500 transition-colors">AMT Drivers</a>
                 <a href="#diaphragms" class="hover:text-amber-500 transition-colors">Diaphragms</a>
-                <a href="#heritage" class="hover:text-amber-500 transition-colors">Engineering</a>
-                <a href="#contact" class="bg-slate-900 text-white px-6 py-2.5 rounded-full hover:bg-amber-600 transition-all shadow-lg shadow-slate-200">Request Sample</a>
+                <a href="#about" class="hover:text-amber-500 transition-colors">About Us</a>
+                <div class="flex items-center gap-4 ml-4 border-l pl-8 border-slate-200">
+                    <a href="https://wa.me/8618128026346" class="text-slate-400 hover:text-green-500 transition-colors text-lg"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:evan@yochiaudio.com" class="text-slate-400 hover:text-amber-500 transition-colors text-lg"><i class="far fa-envelope"></i></a>
+                    <a href="#contact" class="bg-slate-900 text-white px-5 py-2.5 rounded-full hover:bg-amber-600 transition-all shadow-lg text-[10px]">REQUEST SAMPLE</a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-50 via-white to-white">
+    <section class="pt-32 pb-20 px-6 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-amber-50 via-white to-white text-center lg:text-left">
         <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-            <div class="flex-1 text-center lg:text-left">
+            <div class="flex-1">
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-amber-100 text-amber-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">
                     <i class="fas fa-certificate"></i> Official Diaphragm Supplier for EVE Audio
                 </div>
                 <h1 class="text-4xl lg:text-7xl font-black leading-[1.1] mb-8 text-slate-900">
-                    Premium <span class="gradient-text">AMT Drivers</span><br>Direct From Source.
+                    The Elite Source for <span class="gradient-text">AMT Components.</span>
                 </h1>
                 <p class="text-lg text-slate-600 mb-10 leading-relaxed max-w-2xl">
-                    One of only three master factories in China. We supply studio-grade diaphragms and AMT high-frequency drivers to global top-tier audio brands.
+                    One of only 3 master factories in China capable of top-tier AMT diaphragm R&D. We empower global audio brands with precision, direct from our family-owned laboratory.
                 </p>
                 <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                    <a href="#products" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:shadow-2xl hover:-translate-y-1 transition-all">View Technical Catalog</a>
-                    <div class="flex items-center gap-3 px-4 border-l-2 border-slate-200 ml-2">
-                        <p class="text-xs font-bold text-slate-400 leading-tight italic text-left">Trusted by<br>Industry Leaders</p>
-                    </div>
+                    <a href="#products" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:shadow-2xl hover:-translate-y-1 transition-all">Technical Catalog</a>
+                    <a href="https://wa.me/8618128026346" class="px-8 py-4 border-2 border-slate-200 text-slate-900 rounded-2xl font-bold hover:bg-slate-50 transition-all flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-green-500"></i> WhatsApp Chat
+                    </a>
                 </div>
             </div>
             <div class="flex-1 relative w-full max-w-lg lg:max-w-none">
-                <img src="assets/images/ST139/1.jpg" alt="AMT ST139" class="rounded-[2.5rem] shadow-2xl w-full">
-                <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-amber-100 hidden md:block">
-                    <p class="text-amber-500 font-black text-3xl italic">40kHz</p>
-                    <p class="text-slate-400 text-[10px] font-black uppercase tracking-widest">Ultra High-Res</p>
-                </div>
+                <img src="assets/images/ST139/1.jpg" alt="AMT ST139" class="rounded-[2.5rem] shadow-2xl w-full border-8 border-white">
             </div>
         </div>
     </section>
 
     <section id="products" class="py-24 px-6 bg-slate-50">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div class="text-center md:text-left">
-                    <h2 class="text-3xl font-black mb-2 uppercase tracking-tight">Air Motion Transformers</h2>
-                    <p class="text-slate-500">Hover over images to view Frequency Response Curves.</p>
-                </div>
-                <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="px-6 py-2 bg-amber-500 text-white rounded-xl font-bold text-xs uppercase italic">AMT Series</span>
-                </div>
-            </div>
-
+            <h2 class="text-3xl font-black mb-16 uppercase tracking-tight text-center italic underline decoration-amber-500 underline-offset-8">Air Motion Transformers</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                
                 <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/ST139/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
@@ -99,257 +89,117 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">8.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMTST139.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
+                            <a href="assets/docs/AMTST139.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec Sheet</a>
                             <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT040-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT040-0401/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT040-0401</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
                 </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT040-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT040-0402/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT040-0402</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0402.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT040-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT040-0403/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT040-0403</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0403.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT040-0404/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT040-0404/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT040-0404</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0404.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT065-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT065-0401/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT065-0401</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT065-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT065-0402/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT065-0402</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0402.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/AMT065-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT065-0403/Curve.png" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT065-0403</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500 tracking-tighter">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0403.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest"><i class="fas fa-file-pdf mr-1"></i> Spec</a>
-                            <a href="#contact" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </section>
 
-    <section id="diaphragms" class="py-24 px-6 bg-white">
-        <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-                <div>
-                    <h2 class="text-3xl font-black mb-2 uppercase tracking-tight">High-End Diaphragms</h2>
-                    <p class="text-slate-500 italic">Advanced diaphragm solutions for premium studio monitors.</p>
-                </div>
-                <div class="px-6 py-2 bg-slate-900 text-white rounded-xl font-bold text-[10px] uppercase tracking-[0.2em]">Source Component</div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                <div class="flex flex-col md:flex-row gap-8 bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all">
-                    <div class="w-full md:w-1/2 aspect-square overflow-hidden rounded-2xl shadow-inner">
-                        <img src="assets/images/Diaphragms-YA-40/1.png" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full md:w-1/2 flex flex-col justify-center">
-                        <h3 class="text-2xl font-black mb-2 italic">YA-DIAPH-40</h3>
-                        <p class="text-slate-500 text-xs mb-6 font-bold uppercase tracking-widest">4.0 Ω / 8.0 Ω Available</p>
-                        <p class="text-sm text-slate-600 mb-8 leading-relaxed italic">The ultra-lightweight diaphragm utilized in world-class studio monitors for unmatched transient accuracy.</p>
-                        <a href="#contact" class="w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-xs text-center hover:bg-amber-600 transition-all uppercase tracking-widest">Get B2B Quote</a>
-                    </div>
-                </div>
-
-                <div class="flex flex-col md:flex-row gap-8 bg-slate-50 p-8 rounded-[2.5rem] border border-slate-100 hover:shadow-xl transition-all">
-                    <div class="w-full md:w-1/2 aspect-square overflow-hidden rounded-2xl shadow-inner">
-                        <img src="assets/images/Diaphragms-YA-65/1.jpg" class="w-full h-full object-cover">
-                    </div>
-                    <div class="w-full md:w-1/2 flex flex-col justify-center">
-                        <h3 class="text-2xl font-black mb-2 italic">YA-DIAPH-65</h3>
-                        <p class="text-slate-500 text-xs mb-6 font-bold uppercase tracking-widest">4.0 Ω / 8.0 Ω Available</p>
-                        <p class="text-sm text-slate-600 mb-8 leading-relaxed italic">Extended surface area design for higher power handling and smoother low-end crossover.</p>
-                        <a href="#contact" class="w-full py-4 bg-slate-900 text-white rounded-xl font-bold text-xs text-center hover:bg-amber-600 transition-all uppercase tracking-widest">Get B2B Quote</a>
-                    </div>
+    <section id="about" class="py-24 px-6 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row-reverse gap-20 items-center">
+            <div class="w-full lg:w-[60%] relative">
+                <div class="absolute -top-10 -right-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
+                <img src="assets/images/Lab1.png" alt="Yochi Audio R&D Lab" class="relative z-10 rounded-[2.5rem] shadow-2xl border border-slate-100 w-full object-cover">
+                <div class="absolute -bottom-6 right-10 bg-slate-900 text-white px-8 py-4 rounded-2xl shadow-xl z-20">
+                    <p class="text-amber-500 font-black text-2xl italic">20+ Years</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest">Engineering Heritage</p>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section id="heritage" class="py-32 px-6 bg-slate-900 text-white overflow-hidden">
-        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20 items-center">
-            <div class="flex-1 relative">
-                <div class="absolute -top-10 -left-10 w-40 h-40 bg-amber-500/10 rounded-full blur-3xl"></div>
-                <img src="assets/images/Lab1.png" alt="Engineering Laboratory" class="relative z-10 rounded-[2.5rem] shadow-2xl border border-slate-700">
-            </div>
-            <div class="flex-1">
-                <div class="text-amber-500 font-black text-xs uppercase tracking-widest mb-4 italic underline">The Factory Advantage</div>
-                <h2 class="text-4xl lg:text-5xl font-black mb-8 leading-tight">True Technical <br>Mastery.</h2>
-                <p class="text-slate-400 text-lg mb-8 leading-relaxed italic">
-                    Our laboratory isn't just for show. As a family-owned legacy factory, we combine 20+ years of hand-tuning with modern anechoic chamber testing to ensure 100% frequency consistency for our global partners.
-                </p>
-                <div class="grid grid-cols-2 gap-8">
-                    <div>
-                        <p class="text-3xl font-black mb-1 text-white">Top 3</p>
-                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">R&D Rank in China</p>
-                    </div>
-                    <div>
-                        <p class="text-3xl font-black mb-1 text-white italic">Source</p>
-                        <p class="text-[10px] text-slate-500 font-bold uppercase tracking-widest">No Middleman Markup</p>
-                    </div>
+            <div class="w-full lg:w-[40%]">
+                <div class="text-amber-600 font-black text-xs uppercase tracking-widest mb-4 italic">Company Profile</div>
+                <h2 class="text-4xl font-black mb-8 leading-tight">Beyond a Manufacturer. <br>A Strategic Tech Partner.</h2>
+                <div class="space-y-6 text-slate-600 leading-relaxed text-sm lg:text-base italic">
+                    <p>
+                        Yochi Audio is a premium acoustic component manufacturer headquartered in China's audio R&D hub. Unlike generic factories, we focus exclusively on <strong>Air Motion Transformer (AMT)</strong> technology.
+                    </p>
+                    <p>
+                        With over two decades of technical evolution, we have mastered the proprietary process of ultra-thin diaphragm folding and tuning—a capability held by only 3 factories nationwide.
+                    </p>
+                    <p>
+                        Our mission is simple: To provide global pro-audio brands with the same uncompromising high-frequency performance found in world-class studio monitors, at direct-from-source efficiency.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="contact" class="py-32 px-6 bg-slate-50">
-        <div class="max-w-3xl mx-auto bg-white rounded-[3rem] p-12 lg:p-20 shadow-2xl border border-slate-100 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-64 h-64 bg-amber-100/50 rounded-full blur-3xl -mr-32 -mt-32"></div>
-            
-            <div class="relative z-10 text-center">
-                <h2 class="text-4xl font-black mb-4 uppercase italic">Partner with us</h2>
-                <p class="text-slate-500 mb-12 italic text-sm">Request technical samples or distributor wholesale pricing.</p>
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 
-                <form action="https://formspree.io/f/xbdkdwlw" method="POST" class="space-y-6 text-left">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Full Name</label>
-                            <input type="text" name="name" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none">
+                <div class="lg:col-span-1 space-y-6">
+                    <h2 class="text-3xl font-black uppercase italic mb-8">Get In Touch</h2>
+                    
+                    <a href="mailto:evan@yochiaudio.com" class="contact-card block bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all">
+                        <div class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="far fa-envelope"></i>
                         </div>
-                        <div class="space-y-2">
-                            <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Email Address</label>
-                            <input type="email" name="email" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none">
+                        <p class="text-[10px] font-black uppercase text-slate-400 mb-1">Email</p>
+                        <p class="font-bold text-slate-800">evan@yochiaudio.com</p>
+                    </a>
+
+                    <a href="https://wa.me/8618128026346" class="contact-card block bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all">
+                        <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fab fa-whatsapp"></i>
                         </div>
-                    </div>
-                    <div class="space-y-2">
-                        <label class="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 ml-4">Your Inquiry / Sample Selection</label>
-                        <textarea name="message" rows="4" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
-                    </div>
-                    <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-amber-600 transition-all shadow-xl shadow-amber-100 uppercase tracking-widest italic">
-                        Send Inquiry
-                    </button>
-                </form>
+                        <p class="text-[10px] font-black uppercase text-slate-400 mb-1">WhatsApp / Phone</p>
+                        <p class="font-bold text-slate-800">+86 18128026346</p>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/evan-yochi" target="_blank" class="contact-card block bg-white p-8 rounded-3xl border border-slate-100 shadow-sm transition-all">
+                        <div class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-xl mb-4">
+                            <i class="fab fa-linkedin-in"></i>
+                        </div>
+                        <p class="text-[10px] font-black uppercase text-slate-400 mb-1">LinkedIn</p>
+                        <p class="font-bold text-slate-800">Connect with Evan</p>
+                    </a>
+                </div>
+
+                <div class="lg:col-span-2 bg-white rounded-[3rem] p-12 shadow-2xl border border-slate-100">
+                    <h3 class="text-2xl font-black mb-8 italic">Send a Quick Inquiry</h3>
+                    <form action="https://formspree.io/f/xbdkdwlw" method="POST" class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <input type="text" name="name" placeholder="Full Name" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none">
+                            <input type="email" name="email" placeholder="Business Email" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none">
+                        </div>
+                        <textarea name="message" rows="4" placeholder="How can we help you? (Sample requests, technical specs...)" required class="w-full px-6 py-4 bg-slate-50 border-none rounded-2xl focus:ring-2 focus:ring-amber-500 outline-none"></textarea>
+                        <button type="submit" class="w-full py-5 bg-slate-900 text-white rounded-2xl font-black text-lg hover:bg-amber-600 transition-all shadow-xl uppercase tracking-widest italic">
+                            Send Request
+                        </button>
+                    </form>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-12 text-center text-slate-400 text-[10px] font-black uppercase tracking-[0.3em] border-t border-slate-100 italic">
-        &copy; 2026 YOCHI AUDIO. MASTER OF AMT TECHNOLOGY. CHINA SOURCE FACTORY.
+    <footer class="py-20 bg-white border-t border-slate-100 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+            <div>
+                <span class="text-2xl font-black tracking-tighter italic mb-6 block text-slate-900">YOCHI<span class="text-amber-500">AUDIO</span></span>
+                <p class="text-slate-400 text-xs leading-relaxed max-w-xs uppercase font-bold tracking-widest">
+                    The precision AMT source factory from China. 20+ years of acoustic heritage.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24">
+                <div class="space-y-4">
+                    <p class="text-[10px] font-black uppercase text-slate-300 tracking-widest">Connect</p>
+                    <ul class="text-xs font-bold space-y-3">
+                        <li><a href="https://wa.me/8618128026346" class="hover:text-amber-500">WhatsApp: +86 18128026346</a></li>
+                        <li><a href="mailto:evan@yochiaudio.com" class="hover:text-amber-500">Email: evan@yochiaudio.com</a></li>
+                        <li><a href="https://www.linkedin.com/in/evan-yochi" class="hover:text-amber-500">LinkedIn: evan-yochi</a></li>
+                    </ul>
+                </div>
+                <div class="space-y-4 text-slate-400 text-[10px] font-bold uppercase tracking-widest italic">
+                    &copy; 2026 YOCHI AUDIO. <br>All rights reserved.
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-        // Navbar Scroll Effect
         window.addEventListener('scroll', () => {
             const nav = document.getElementById('navbar');
             if (window.scrollY > 50) {
