@@ -102,8 +102,8 @@
                     <div class="carousel-item absolute inset-0 opacity-100 transition-opacity duration-1000 ease-in-out">
                         <img src="assets/images/ST139/1.jpg" class="w-full h-full object-cover" alt="ST139 Angle 1">
                     </div>
-                    <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
-                        <img src="assets/images/ST139/4.jpg" class="w-full h-full object-cover" alt="ST139 Detail 1">
+                    <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center">
+                        <img src="assets/images/ST139/4.jpg" class="max-w-full max-h-full object-contain" alt="ST139 Detail 1">
                     </div>
                     <div class="carousel-item absolute inset-0 opacity-0 transition-opacity duration-1000 ease-in-out">
                         <img src="assets/images/ST139/2.jpg" class="w-full h-full object-cover" alt="ST139 Angle 2">
@@ -653,11 +653,13 @@
             }
         });
 
-        // 新增的 ST139 轮播图代码放在这里
+        // ==========================================
+        // ST139 轮播图代码 (带自动重置防冲突逻辑)
         // ==========================================
         let currentHeroIndex = 0;
         const heroSlides = document.querySelectorAll('.carousel-item');
         const heroDots = document.querySelectorAll('.hero-dot');
+        let heroTimer; // 新增：用来存储计时器的变量
 
         function updateHeroCarousel() {
             heroSlides.forEach((slide, index) => {
@@ -671,15 +673,31 @@
         function changeHeroSlide(direction) {
             currentHeroIndex = (currentHeroIndex + direction + heroSlides.length) % heroSlides.length;
             updateHeroCarousel();
+            resetHeroTimer(); // 新增：每次手动点击后，重置自动播放
         }
 
         function jumpToHeroSlide(index) {
             currentHeroIndex = index;
             updateHeroCarousel();
+            resetHeroTimer(); // 新增：每次手动点击后，重置自动播放
         }
 
-        // 每 5 秒自動切換一次
-        setInterval(() => changeHeroSlide(1), 5000);
+        // 新增：专门负责启动计时器的函数
+        function startHeroTimer() {
+            heroTimer = setInterval(() => {
+                currentHeroIndex = (currentHeroIndex + 1) % heroSlides.length;
+                updateHeroCarousel();
+            }, 5000);
+        }
+
+        // 新增：砸掉旧闹钟，重新计时的函数
+        function resetHeroTimer() {
+            clearInterval(heroTimer);
+            startHeroTimer();
+        }
+
+        // 页面加载时启动第一次自动轮播
+        startHeroTimer();
         
     </script>
 </body>
