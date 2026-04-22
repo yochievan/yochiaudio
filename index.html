@@ -652,6 +652,35 @@
                 nav.classList.add('py-4');
             }
         });
+
+        // 新增的 ST139 轮播图代码放在这里
+        // ==========================================
+        let currentHeroIndex = 0;
+        const heroSlides = document.querySelectorAll('.carousel-item');
+        const heroDots = document.querySelectorAll('.hero-dot');
+
+        function updateHeroCarousel() {
+            heroSlides.forEach((slide, index) => {
+                slide.style.opacity = (index === currentHeroIndex) ? "1" : "0";
+            });
+            heroDots.forEach((dot, index) => {
+                dot.style.backgroundColor = (index === currentHeroIndex) ? "#f59e0b" : "rgba(255, 255, 255, 0.5)";
+            });
+        }
+
+        function changeHeroSlide(direction) {
+            currentHeroIndex = (currentHeroIndex + direction + heroSlides.length) % heroSlides.length;
+            updateHeroCarousel();
+        }
+
+        function jumpToHeroSlide(index) {
+            currentHeroIndex = index;
+            updateHeroCarousel();
+        }
+
+        // 每 5 秒自動切換一次
+        setInterval(() => changeHeroSlide(1), 5000);
+        
     </script>
 </body>
 </html>
