@@ -24,6 +24,9 @@
         .gradient-text { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .product-card:hover .curve-overlay { opacity: 1; }
         .filter-btn.active { background-color: #f59e0b; color: white; border-color: #f59e0b; }
+        .filter-item { transition: all 0.5s ease; transform: scale(1); opacity: 1; }
+        .filter-item.hidden { transform: scale(0.8); opacity: 0; display: none; }
+        .filter-btn.active { background-color: #f59e0b; color: white; border-color: #f59e0b; }
         
         /* 側邊導覽切換動畫 */
         #toc-sidebar { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
@@ -146,115 +149,20 @@
                     <p class="text-slate-500 text-xs mb-1">Hover over images to view Frequency Response Curves.</p>
                     <p class="text-amber-600 font-bold text-[10px] uppercase tracking-[0.2em] italic">* All SPL data measured in our professional 2π anechoic chamber.</p>
                 </div>
-                <div class="flex bg-white p-1.5 rounded-2xl shadow-sm border border-slate-200">
-                    <span class="px-6 py-2 bg-amber-500 text-white rounded-xl font-bold text-xs uppercase italic tracking-widest">AMT Technical Series</span>
+                <div class="flex flex-wrap gap-3 mb-12 justify-center md:justify-start">
+                    <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Show All</button>
+                    <button onclick="filterProducts('reference')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Reference (ST139)</button>
+                    <button onclick="filterProducts('standard')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Standard AMT</button>
+                    <button onclick="filterProducts('rectangular')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Rectangular AMT</button>
+                    <button onclick="filterProducts('ribbon')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">ART Ribbon</button>
                 </div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="reference">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/ART7040-0801/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/ART7040-0801/Curve.jpg" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0801</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/ART7040-0801.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('ART7040-0801')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
-                        <img src="assets/images/ART7040-0802/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/ART7040-0802/Curve.jpg" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0802</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/ART7040-0802.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('ART7040-0802')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
-                        <img src="assets/images/ART7040-0803/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/ART7040-0803/Curve.jpg" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0803</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/ART7040-0803.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('ART7040-0803')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
-                        <img src="assets/images/AMT113S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT113S-0401/Curve.jpg" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT113S-0401</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT113S-0401.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT113S-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
-                        <img src="assets/images/AMT172S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
-                            <img src="assets/images/AMT172S-0401/Curve.jpg" class="max-w-full h-auto">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT172S-0401</h3>
-                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
-                        </div>
-                        <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT172S-0401.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT172S-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
-                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                        <div class="absolute top-4 left-4 z-10 px-3 py-1 bg-amber-500 text-white text-[9px] font-black uppercase rounded-full">Flagship</div>
                         <img src="assets/images/ST139/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
                             <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
@@ -263,21 +171,20 @@
                     </div>
                     <div class="p-6 flex-grow">
                         <div class="flex justify-between items-center mb-3">
-                            <h3 class="font-black text-slate-800 uppercase italic">AMT-ST139</h3>
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT-ST139</h3>
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMTST139.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT-ST139')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMTST139.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT-ST139')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT040-0401/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -287,17 +194,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0401.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT040-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT040-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT040-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT040-0402/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -307,17 +213,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0402.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT040-0402')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT040-0402.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT040-0402')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
-
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT040-0403/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -327,17 +232,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0403.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT040-0403')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT040-0403.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT040-0403')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0404/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT040-0404/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -347,17 +251,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT040-0404.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT040-0404')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT040-0404.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT040-0404')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT065-0401/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -367,17 +270,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0401.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT065-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT065-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT065-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT065-0402/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -387,17 +289,16 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0402.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT065-0402')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT065-0402.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT065-0402')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col">
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
-                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
-                            <p class="text-[10px] font-black text-amber-600 uppercase mb-2 italic">Frequency Curve</p>
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
                             <img src="assets/images/AMT065-0403/Curve.png" class="max-w-full h-auto">
                         </div>
                     </div>
@@ -407,8 +308,103 @@
                             <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
                         </div>
                         <div class="grid grid-cols-2 gap-2 mt-4">
-                            <a href="assets/docs/AMT065-0403.pdf" target="_blank" rel="noopener noreferrer" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-colors uppercase tracking-widest">Spec</a>
-                            <a href="#contact" onclick="requestSample('AMT065-0403')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-colors uppercase tracking-widest">Sample</a>
+                            <a href="assets/docs/AMT065-0403.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT065-0403')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
+                        <img src="assets/images/AMT113S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
+                            <img src="assets/images/AMT113S-0401/Curve.jpg" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT113S-0401</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/AMT113S-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT113S-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
+                        <img src="assets/images/AMT172S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
+                            <img src="assets/images/AMT172S-0401/Curve.jpg" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT172S-0401</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/AMT172S-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT172S-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                        <img src="assets/images/ART7040-0801/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
+                            <img src="assets/images/ART7040-0801/Curve.jpg" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0801</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/ART7040-0801.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('ART7040-0801')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
+                        <img src="assets/images/ART7040-0802/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
+                            <img src="assets/images/ART7040-0802/Curve.jpg" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0802</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/ART7040-0802.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('ART7040-0802')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                        <img src="assets/images/ART7040-0803/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
+                            <img src="assets/images/ART7040-0803/Curve.jpg" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">ART7040-0803</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">8.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/ART7040-0803.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('ART7040-0803')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
                         </div>
                     </div>
                 </div>
@@ -617,6 +613,7 @@
     </footer>
 
     <script>
+        
         // 側邊目錄開關功能
         function toggleTOC() {
             const sidebar = document.getElementById('toc-sidebar');
@@ -629,6 +626,26 @@
                 icon.classList.replace('fa-chevron-left', 'fa-chevron-right');
                 sidebar.style.width = "176px"; // 44rem
             }
+        }
+
+        function filterProducts(category) {
+            const items = document.querySelectorAll('.filter-item');
+            const btns = document.querySelectorAll('.filter-btn');
+    
+            btns.forEach(btn => {
+                btn.classList.remove('active');
+                if(btn.getAttribute('onclick').includes(`'${category}'`)) {
+                    btn.classList.add('active');
+                }
+            });
+
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
         }
 
         // 樣品申請自動預填
