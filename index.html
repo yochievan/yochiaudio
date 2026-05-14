@@ -149,18 +149,20 @@
                     <p class="text-slate-500 text-xs mb-1">Hover over images to view Frequency Response Curves.</p>
                     <p class="text-amber-600 font-bold text-[10px] uppercase tracking-[0.2em] italic">* All SPL data measured in our professional 2π anechoic chamber.</p>
                 </div>
-                <div class="flex flex-wrap gap-3 mb-12 justify-center md:justify-start">
+                
+            </div>
+
+            <div class="flex flex-wrap gap-3 mb-12 justify-center md:justify-start">
                     <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Show All</button>
                     <button onclick="filterProducts('reference')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Reference (ST139)</button>
                     <button onclick="filterProducts('standard')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Standard AMT</button>
                     <button onclick="filterProducts('rectangular')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Rectangular AMT</button>
                     <button onclick="filterProducts('ribbon')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">ART Ribbon</button>
-                </div>
             </div>
-
+            
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="reference">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-amber-200 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="reference">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <div class="absolute top-4 left-4 z-10 px-3 py-1 bg-amber-500 text-white text-[9px] font-black uppercase rounded-full">Flagship</div>
                         <img src="assets/images/ST139/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
@@ -181,7 +183,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -200,7 +202,7 @@
                     </div>
                 </div>
                 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -219,7 +221,7 @@
                     </div>
                 </div>
                 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -238,7 +240,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0404/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -257,7 +259,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -276,7 +278,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0402/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -295,7 +297,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT065-0403/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
@@ -314,7 +316,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
                         <img src="assets/images/AMT113S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
@@ -333,7 +335,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="rectangular">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
                         <img src="assets/images/AMT172S-0401/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
@@ -352,7 +354,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/ART7040-0801/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
@@ -371,7 +373,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden flex items-center justify-center p-6">
                         <img src="assets/images/ART7040-0802/1.jpg" class="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
@@ -390,7 +392,7 @@
                     </div>
                 </div>
 
-                <div class="product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="ribbon">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/ART7040-0803/1.jpg" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                         <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center text-center">
