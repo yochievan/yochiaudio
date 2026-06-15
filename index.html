@@ -154,7 +154,7 @@
 
             <div class="flex flex-wrap gap-3 mb-12 justify-center md:justify-start">
                     <button onclick="filterProducts('all')" class="filter-btn active px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Show All</button>
-                    <button onclick="filterProducts('reference')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Reference (ST139)</button>
+                    <button onclick="filterProducts('reference')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Reference Class</button>
                     <button onclick="filterProducts('standard')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Standard AMT</button>
                     <button onclick="filterProducts('rectangular')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">Rectangular AMT</button>
                     <button onclick="filterProducts('ribbon')" class="filter-btn px-6 py-2 rounded-xl border border-slate-200 font-bold text-[10px] uppercase tracking-widest transition-all">ART Ribbon</button>
@@ -183,6 +183,25 @@
                     </div>
                 </div>
 
+                <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
+                    <div class="relative aspect-square bg-slate-100 overflow-hidden">
+                        <img src="assets/images/AMT8060-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="curve-overlay absolute inset-0 bg-white/95 opacity-0 transition-opacity duration-300 flex flex-col p-4 items-center justify-center">
+                            <img src="assets/images/AMT8060-0401/Curve.png" class="max-w-full h-auto">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="font-black text-slate-800 uppercase italic leading-none">AMT040-0401</h3>
+                            <span class="text-[10px] font-black bg-slate-100 px-2 py-0.5 rounded text-slate-500">4.0 Ω</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 mt-4">
+                            <a href="assets/docs/AMT040-0401.pdf" target="_blank" class="py-2.5 bg-slate-900 text-white rounded-lg font-bold text-[10px] text-center hover:bg-amber-600 transition-all uppercase">Spec</a>
+                            <a href="#contact" onclick="requestSample('AMT8060-0401')" class="py-2.5 border border-slate-200 text-slate-600 rounded-lg font-bold text-[10px] text-center hover:bg-slate-50 transition-all uppercase">Sample</a>
+                        </div>
+                    </div>
+                </div>
+                             
                 <div class="filter-item product-item product-card group bg-white rounded-3xl overflow-hidden border border-slate-100 hover:border-amber-500 transition-all shadow-sm hover:shadow-xl flex flex-col" data-category="standard">
                     <div class="relative aspect-square bg-slate-100 overflow-hidden">
                         <img src="assets/images/AMT040-0401/1.png" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
